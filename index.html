@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <header class="animate__animated animate__fadeInDown">
+        <h1>Welcome To My Portfolio</h1>
+    </header>
+    <section id="about">
+        <h1 class="animate__animated animate__fadeInUp">About Me</h1>
+        <div class="about-content animate__animated animate__fadeInUp animate__delay-1s">
+                <ul>
+                    <p>
+                        
+
+I'm a passionate front-end developer with a keen eye for design and a dedication to creating visually appealing and user-friendly websites. Recently, I had the opportunity to work on three exciting projects with CodeAlpha, which helped me hone my skills and gain hands-on experience in front-end development. My journey in this field has been fueled by a love for coding and a desire to bring creative ideas to life through clean, efficient, and accessible web design.
+
+Whether it's building responsive layouts, enhancing website aesthetics, or optimizing performance, I take pride in every detail of my work. I'm continuously learning and evolving, always eager to take on new challenges and contribute to innovative projects. 
+
+Let's connect and create something amazing together!
+                    </p>
+                </ul>
+            
+            <div class="skills">
+                <h2>Skills Summary</h2>
+                <div class="skill-bar">
+                    <span>HTML / CSS</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 78%;"></div>
+                    </div>
+                    <span>78%</span>
+                </div>
+                <div class="skill-bar">
+                    <span>MS Office</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 81%;"></div>
+                    </div>
+                    <span>81%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="MY Portfolio">
+        <h1 class="animate__animated animate__fadeInUp">Portfolio</h1>
+        <div class="gallery">
+            <div class="gallery-item animate__animated animate__zoomIn"><img src="pic.jpg" alt="Portfolio Item"></div>
+            <!-- More portfolio items -->
+        </div>
+    </section>
+    <section id="contact">
+        <h1 class="animate__animated animate__fadeInUp">Contact</h1>
+        <form id="contact-form" action="https://formspree.io/f/yourformid" method="POST">
+            <input type="text" name="name" placeholder="Your Name" class="animate__animated animate__fadeInUp">
+            <input type="email" name="email" placeholder="Your Email" class="animate__animated animate__fadeInUp animate__delay-1s">
+            <textarea name="message" placeholder="Your Message" class="animate__animated animate__fadeInUp animate__delay-2s"></textarea>
+            <button type="submit" class="animate__animated animate__fadeInUp animate__delay-3s">Send</button>
+        </form>
+        <div id="success-message" class="hidden">
+            <p>Your message has been successfully sent to HARDY!</p>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            // Show the success message
+            document.getElementById('success-message').classList.remove('hidden');
+            // Optionally, you can also hide the form
+            document.getElementById('contact-form').classList.add('hidden');
+            // Here you would normally send the form data using AJAX or a similar method
+            fetch('https://formspree.io/f/yourformid', {
+                method: 'POST',
+                body: new FormData(event.target)
+            }).then(response => {
+                if (response.ok) {
+                    console.log('Form successfully submitted');
+                } else {
+                    console.log('Form submission failed');
+                }
+            }).catch(error => {
+                console.log('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
